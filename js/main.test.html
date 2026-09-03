@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tests main.js</title>
+</head>
+<body>
+<div id="results"></div>
+
+<form id="testForm" class="whatsapp-form" data-intro="Bonjour OWAN, test.">
+  <label for="f-nom">Nom</label>
+  <input id="f-nom" name="nom" value="Jean Test">
+  <label for="f-tel">Téléphone</label>
+  <input id="f-tel" name="tel" value="0700000000">
+  <label for="f-vide">Vide</label>
+  <input id="f-vide" name="vide" value="">
+</form>
+
+<script src="main.js"></script>
+<script>
+  function assertEqual(actual, expected, label) {
+    var pass = actual === expected;
+    var line = document.createElement("p");
+    line.textContent = (pass ? "PASS" : "FAIL") + " — " + label +
+      (pass ? "" : " (attendu: " + JSON.stringify(expected) + ", obtenu: " + JSON.stringify(actual) + ")");
+    line.style.color = pass ? "green" : "red";
+    document.getElementById("results").appendChild(line);
+  }
+
+  var form = document.getElementById("testForm");
+  var message = buildWhatsAppMessage(form);
+  var expectedMessage = "Bonjour OWAN, test.\nNom : Jean Test\nTéléphone : 0700000000";
+  assertEqual(message, expectedMessage, "buildWhatsAppMessage ignore les champs vides et utilise le texte des labels");
+
+  var url = whatsAppUrl("Bonjour OWAN,");
+  var expectedUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=Bonjour%20OWAN%2C";
+  assertEqual(url, expectedUrl, "whatsAppUrl encode le message et utilise WHATSAPP_NUMBER");
+</script>
+</body>
+</html>
