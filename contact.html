@@ -8,6 +8,14 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2 1c1 3 3 5 6 6l1-2 5 2v3c0 1-1 2-2 2C10 21 3 14 3 6c0-1 1-2 2-2z"/></symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M9 9c0 3.5 2.5 6 6 6"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><polyline points="3,6 12,13 21,6"/></symbol>
+  <symbol id="icon-location" viewBox="0 0 24 24"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 16,14"/></symbol>
+  <symbol id="icon-link" viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M13 5l1.5-1.5a3.5 3.5 0 0 1 5 5L18 10"/><path d="M11 19l-1.5 1.5a3.5 3.5 0 0 1-5-5L6 14"/></symbol>
+</svg>
 <header class="site-header">
   <div class="container header-inner">
     <a href="index.html" class="logo">OWAN <span>INTER LINK</span></a>
@@ -29,12 +37,12 @@
   <div class="container">
     <h1 class="section-title">CONTACT</h1>
     <div class="trust-grid" style="margin-bottom:40px;">
-      <div class="card"><h3>📞 Téléphone</h3><p><a href="tel:+225XXXXXXXXX">[TÉLÉPHONE OWAN]</a></p></div>
-      <div class="card"><h3>💬 WhatsApp</h3><p><a href="#" class="whatsapp-link" data-message="Bonjour OWAN,">[NUMÉRO WHATSAPP OWAN]</a></p></div>
-      <div class="card"><h3>✉️ Email</h3><p><a href="mailto:EMAIL_OWAN@example.com">[EMAIL OWAN]</a></p></div>
-      <div class="card"><h3>📍 Adresse</h3><p>[ADRESSE OWAN — Grand-Bassam, Côte d'Ivoire]</p></div>
-      <div class="card"><h3>🕐 Horaires</h3><p>[HORAIRES OWAN]</p></div>
-      <div class="card"><h3>🔗 Réseaux</h3><p><a href="https://facebook.com/OWAN_PLACEHOLDER" target="_blank" rel="noopener">Facebook</a> · <a href="https://instagram.com/OWAN_PLACEHOLDER" target="_blank" rel="noopener">Instagram</a> · <a href="https://linkedin.com/company/OWAN_PLACEHOLDER" target="_blank" rel="noopener">LinkedIn</a></p></div>
+      <div class="card"><div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg></div><h3>Téléphone</h3><p><a href="tel:+225XXXXXXXXX">[TÉLÉPHONE OWAN]</a></p></div>
+      <div class="card"><div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg></div><h3>WhatsApp</h3><p><a href="#" class="whatsapp-link" data-message="Bonjour OWAN,">[NUMÉRO WHATSAPP OWAN]</a></p></div>
+      <div class="card"><div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg></div><h3>Email</h3><p><a href="mailto:EMAIL_OWAN@example.com">[EMAIL OWAN]</a></p></div>
+      <div class="card"><div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#icon-location"></use></svg></div><h3>Adresse</h3><p>[ADRESSE OWAN — Grand-Bassam, Côte d'Ivoire]</p></div>
+      <div class="card"><div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#icon-clock"></use></svg></div><h3>Horaires</h3><p>[HORAIRES OWAN]</p></div>
+      <div class="card"><div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#icon-link"></use></svg></div><h3>Réseaux</h3><p><a href="https://facebook.com/OWAN_PLACEHOLDER" target="_blank" rel="noopener">Facebook</a> · <a href="https://instagram.com/OWAN_PLACEHOLDER" target="_blank" rel="noopener">Instagram</a> · <a href="https://linkedin.com/company/OWAN_PLACEHOLDER" target="_blank" rel="noopener">LinkedIn</a></p></div>
     </div>
 
     <form class="form whatsapp-form" data-intro="Bonjour OWAN, je vous contacte via le site :">
