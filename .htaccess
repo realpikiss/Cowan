@@ -1,0 +1,42 @@
+# OWAN INTER LINK — Apache configuration (most shared hosts).
+# On Netlify / Vercel / Cloudflare Pages, the same rules go in their own config format.
+
+# 1. Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Custom 404 page
+ErrorDocument 404 /404.html
+
+# 3. Do not publish internal files
+RedirectMatch 404 ^/(docs|\.git|\.superpowers|\.worktrees|cahier_charge)(/|$)
+RedirectMatch 404 ^/js/main\.test\.html$
+
+# 4. Security headers
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # When an analytics tool is added (e.g. Plausible), add its domain to script-src and connect-src.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src https://maps.google.com https://www.google.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests"
+</IfModule>
+
+# 5. Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/plain application/xml image/svg+xml
+</IfModule>
+
+# 6. Browser cache (CSS/JS/fonts/images change rarely; HTML always fresh)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+</IfModule>

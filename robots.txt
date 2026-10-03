@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /docs/
+Disallow: /js/main.test.html
+
+Sitemap: https://www.DOMAINE-OWAN.com/sitemap.xml

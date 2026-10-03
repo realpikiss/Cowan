@@ -1,0 +1,3 @@
+Montserrat and Poppins are licensed under the SIL Open Font License, Version 1.1.
+Full license: https://openfontlicense.org
+Montserrat: Copyright The Montserrat Project Authors. Poppins: Copyright Indian Type Foundry.
